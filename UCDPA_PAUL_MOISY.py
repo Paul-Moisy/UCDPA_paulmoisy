@@ -18,12 +18,12 @@ df.info()
 
 #Some of the headings have unwanted index charicters from the export. 
 #Removing unwanted charicters from Column headings.
-def run():
+def clean():
     lis = ['ubk', 'xaw', 'lml', 'jmo', 'lme']
     
     for i in lis:
         df.columns = df.columns.str.replace(i[0:3],'')                       
-run()
+clean()
 
 df.columns = df.columns
 
@@ -75,16 +75,17 @@ plt.xlabel('Date')
 plt.ylabel('Hrs')
 plt.title('Earned Hours Trend Line')
 #plt.plot(leo.directEarnedHours)
+#plt.plot(leo.actualHoursOnTCard)
 #plt.plot(shaun.directEarnedHours)
 #plt.plot(murray.directEarnedHours)
 #plt.plot(fernando.directEarnedHours)
-plt.plot(cell_2.directEarnedHours)
+#plt.plot(cell_2.directEarnedHours)
 
 import seaborn as sns
 
 #This scatter plot shows some interesting 
-#sns.histplot(data=cell_2, x='weekDay', y='directEarnedHours' )
-
+sns.lineplot(data=cell_2, x='actionDate', y='directEarnedHours')
+sns.lineplot(data=cell_2, x='actionDate', y='actualHoursOnTCard')
 
 
 
