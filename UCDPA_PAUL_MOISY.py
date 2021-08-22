@@ -16,6 +16,9 @@ df.head(10)
 #looking at data set to determine if data is in the correct format.
 df.info()
 
+#updating the week day names.
+df['weekDay'].replace([2, 3, 4, 5, 6, 7], ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'], inplace = True)
+
 #Some of the headings have unwanted index charicters from the export. 
 #Removing unwanted charicters from Column headings.
 def clean():
@@ -50,7 +53,7 @@ print(cell_2['EmployeeName'])
 
 #Checking to see if there is any null values.
 #Column: "GoodQuantity" containes 86 null values, "ActualEndTime" and "actualHoursOnTCard"
-#both contain 3. The null values in "GoodQuantity can be replaced with 0.
+#both contain 2. The null values in "GoodQuantity can be replaced with 0.
 #However the values for "ActualEndTime" and "actualHoursOnTCard" will need to be considered.
 print(cell_2.isna().sum())
 
@@ -70,33 +73,76 @@ fernando = cell_2[cell_2.EmployeeName == 'Fernando Toni']
 
 #Playing around with graphs.
 import matplotlib.pyplot as plt
+import numpy as np
+import seaborn as sns
 
-plt.xlabel('Date')
-plt.ylabel('Hrs')
-plt.title('Earned Hours Trend Line')
+
+#- add note about date!!
+#plt.xlabel('Date')
+#plt.ylabel('Hrs')
+#plt.title('Earned Hours Vs actual Hours')
 #plt.plot(leo.directEarnedHours)
 #plt.plot(leo.actualHoursOnTCard)
+
+#plt.xlabel('Date')
+#plt.ylabel('Hrs')
+#plt.title('Earned Hours Vs actual Hours')
 #plt.plot(shaun.directEarnedHours)
+#plt.plot(shaun.actualHoursOnTCard)
+
+#plt.xlabel('Date')
+#plt.ylabel('Hrs')
+#plt.title('Earned Hours Vs actual Hours')
 #plt.plot(murray.directEarnedHours)
+#plt.plot(murray.actualHoursOnTCard)
+
+#plt.xlabel('Date')
+#plt.ylabel('Hrs')
+##plt.title('Earned Hours Vs actual Hours')
 #plt.plot(fernando.directEarnedHours)
+#plt.plot(fernando.actualHoursOnTCard)
+
+#plt.xlabel('Date')
+#plt.ylabel('Hrs')
+#plt.title('Earned Hours Vs actual Hours')
 #plt.plot(cell_2.directEarnedHours)
+#plt.plot(cell_2.actualHoursOnTCard)
+
+mean_earned = np.mean(cell_2.directEarnedHours)
+mean_actual = np.mean(cell_2.actualHoursOnTCard)
+profit_labels = ['Earned Hours', 'Actual Hours']
+cell_2_means = np.array([mean_earned, mean_actual])
+#sns.barplot(profit_labels, cell_2_means)
+Profit_margin = ('%' + str(mean_earned/mean_actual * 100))
+print(Profit_margin)
 
 import seaborn as sns
 
-#This scatter plot shows some interesting 
-sns.lineplot(data=cell_2, x='actionDate', y='directEarnedHours')
-sns.lineplot(data=cell_2, x='actionDate', y='actualHoursOnTCard')
+#-seaborn give sclearer picture
+#sns.lineplot(data=cell_2, x='actionDate', y='directEarnedHours')
+#sns.lineplot(data=cell_2, x='actionDate', y='actualHoursOnTCard')
 
+#plt.title('Time on jobcard Vs Sector')
+#sns.barplot(data=cell_2, y='BusinessUnit', x='actualHoursOnTCard', order = ['Tooling', 'Production', 'Medical'])
 
+#plt.title('Earned Hours Vs Sector')
+#sns.barplot(data=cell_2, y='BusinessUnit', x='directEarnedHours', order = ['Production', 'Medical', 'Tooling'])
 
+#plt.title('Earned hours Vs Week day')
+#sns.barplot(data=cell_2, x = 'weekDay', y = 'directEarnedHours')
 
+import numpy as np
+mean_leo = np.mean(leo.actualHoursOnTCard)
+mean_Shaun = np.mean(shaun.actualHoursOnTCard)
+mean_fernando = np.mean(fernando.actualHoursOnTCard)
+mean_murray = np.mean(murray.actualHoursOnTCard)
 
+operators = np.array(['Shaun', 'Fernando', 'Leo', 'Murray'])
+Means = np.array([mean_Shaun, mean_fernando, mean_leo, mean_murray])
 
-
-
-
-
-
+#plt.title('Mean time clocked to operation')
+#plt.xlabel('Hours')
+#sns.barplot(Means, operators)
 
 
 #cell_2.to_excel("123.xlsx")   
