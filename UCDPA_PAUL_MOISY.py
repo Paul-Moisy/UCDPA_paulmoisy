@@ -78,91 +78,91 @@ import seaborn as sns
 
 
 #Earned hours (Quoted time) vs actual hours (time spent on job) for leo.
-#plt.figure(figsize=(7,3))
-#plt.xlabel('Date')
-#plt.ylabel('Hrs')
-#plt.title('Earned Hours Vs actual Hours for Leo')
-#plt.plot(leo.directEarnedHours, label = 'directEarnedHours')
-#plt.plot(leo.actualHoursOnTCard, label ='actualHoursOnTCard')
-#plt.legend();
+plt.figure(figsize=(7,3))
+plt.xlabel('Date')
+plt.ylabel('Hrs')
+plt.title('Earned Hours Vs actual Hours for Leo')
+plt.plot(leo.directEarnedHours, label = 'directEarnedHours')
+plt.plot(leo.actualHoursOnTCard, label ='actualHoursOnTCard')
+plt.legend();
 
 #Earned hours (Quoted time) vs actual hours (time spent on job) for shaun.
-#plt.figure(figsize=(7,3))
-#plt.xlabel('Date')
-#plt.ylabel('Hrs')
-#plt.title('Earned Hours Vs actual Hours for Shaun')
-#plt.plot(shaun.directEarnedHours, label = 'directEarnedHours')
-#plt.plot(shaun.actualHoursOnTCard, label ='actualHoursOnTCard')
-#plt.legend();
+plt.figure(figsize=(7,3))
+plt.xlabel('Date')
+plt.ylabel('Hrs')
+plt.title('Earned Hours Vs actual Hours for Shaun')
+plt.plot(shaun.directEarnedHours, label = 'directEarnedHours')
+plt.plot(shaun.actualHoursOnTCard, label ='actualHoursOnTCard')
+plt.legend();
 
 #Earned hours (Quoted time) vs actual hours (time spent on job) for murray.
-#plt.figure(figsize=(7,3))
-#plt.xlabel('Date')
-#plt.ylabel('Hrs')
-#plt.title('Earned Hours Vs actual Hours for Murray')
-#plt.plot(murray.directEarnedHours, label = 'directEarnedHours')
-#plt.plot(murray.actualHoursOnTCard, label ='actualHoursOnTCard')
-#plt.legend();
+plt.figure(figsize=(7,3))
+plt.xlabel('Date')
+plt.ylabel('Hrs')
+plt.title('Earned Hours Vs actual Hours for Murray')
+plt.plot(murray.directEarnedHours, label = 'directEarnedHours')
+plt.plot(murray.actualHoursOnTCard, label ='actualHoursOnTCard')
+plt.legend();
 
 #Earned hours (Quoted time) vs actual hours (time spent on job) for Fernando.
-#plt.figure(figsize=(7,3))
-#plt.xlabel('Date')
-#plt.ylabel('Hrs')
-#plt.title('Earned Hours Vs actual Hours for Fernando')
-#plt.plot(fernando.directEarnedHours, label = 'directEarnedHours')
-#plt.plot(fernando.actualHoursOnTCard, label ='actualHoursOnTCard')
-#plt.legend();
+plt.figure(figsize=(7,3))
+plt.xlabel('Date')
+plt.ylabel('Hrs')
+plt.title('Earned Hours Vs actual Hours for Fernando')
+plt.plot(fernando.directEarnedHours, label = 'directEarnedHours')
+plt.plot(fernando.actualHoursOnTCard, label ='actualHoursOnTCard')
+plt.legend();
 
 #Earned hours (Quoted time) vs actual hours (time spent on job) for whole production cell.
-#plt.figure(figsize=(7,3))
-#plt.xlabel('Date')
-#plt.ylabel('Hrs')
-#plt.title('Earned Hours Vs actual Hours for Cell_2')
-#plt.plot(cell_2.directEarnedHours, label = 'directEarnedHours')
-#plt.plot(cell_2.actualHoursOnTCard, label ='actualHoursOnTCard')
-#plt.legend();
+plt.figure(figsize=(7,3))
+plt.xlabel('Date')
+plt.ylabel('Hrs')
+plt.title('Earned Hours Vs actual Hours for Cell_2')
+plt.plot(cell_2.directEarnedHours, label = 'directEarnedHours')
+plt.plot(cell_2.actualHoursOnTCard, label ='actualHoursOnTCard')
+plt.legend();
 
-#plt.figure(figsize=(7,3))
-#plt.title('Earned Hours Vs actual Hours for Cell_2')
-#plt.xlabel('Date')
-#plt.ylabel('Hrs')
-#sns.lineplot(data=cell_2, x='actionDate', y='directEarnedHours', label = 'directEarnedHours')
-#sns.lineplot(data=cell_2, x='actionDate', y='actualHoursOnTCard', label ='actualHoursOnTCard')
-#plt.legend();
+plt.figure(figsize=(7,3))
+plt.title('Earned Hours Vs actual Hours for Cell_2')
+plt.xlabel('Date')
+plt.ylabel('Hrs')
+sns.lineplot(data=cell_2, x='actionDate', y='directEarnedHours', label = 'directEarnedHours')
+sns.lineplot(data=cell_2, x='actionDate', y='actualHoursOnTCard', label ='actualHoursOnTCard')
+plt.legend();
 
 
 
 #In this section i try to determine if the cell is clearing a profit based on the hours quoted for the job and hours worked. 
 #It appers that there is roughly a 32% profit margin.
-#mean_earned = np.mean(cell_2.directEarnedHours)
-#mean_actual = np.mean(cell_2.actualHoursOnTCard)
+mean_earned = np.mean(cell_2.directEarnedHours)
+mean_actual = np.mean(cell_2.actualHoursOnTCard)
 
-#profit_labels = np.array(['Earned Hours', 'Actual Hours'])
-#cell_2_means = np.array([mean_earned, mean_actual])
+profit_labels = np.array(['Earned Hours', 'Actual Hours'])
+cell_2_means = np.array([mean_earned, mean_actual])
 
-#Profit_margin = (str((mean_earned/mean_actual * 100)-100) + "%")
-#print('Average Daily Profit margin = ' + Profit_margin)
+Profit_margin = (str((mean_earned/mean_actual * 100)-100) + "%")
+print('Average Daily Profit margin = ' + Profit_margin)
 
 #plt.title('Average Daily Earned Vs Actual Hours')
-#plt.ylabel('Hrs')
-#sns.barplot(profit_labels, cell_2_means) 
+plt.ylabel('Hrs')
+sns.barplot(profit_labels, cell_2_means) 
 
 
 
 #This graph shouw how long operatives spend on operations by sector.
 #The black lines indicate the distribution of teh data per sector. 
-#plt.title('Time on jobcard Vs Sector')
-#sns.barplot(data=cell_2, y='BusinessUnit', x='actualHoursOnTCard', order = ['Tooling', 'Production', 'Medical']);
+plt.title('Time on jobcard Vs Busness unit')
+sns.barplot(data=cell_2, y='BusinessUnit', x='actualHoursOnTCard', order = ['Tooling', 'Production', 'Medical']);
 
 #This graph showes the average amount of earned hours per sector. 
 #Again the distribution is indicated by the black line.
-#plt.title('Earned Hours Vs Sector')
-#sns.barplot(data=cell_2, y='BusinessUnit', x='directEarnedHours', order = ['Production', 'Medical', 'Tooling']);
+plt.title('Earned Hours Vs Busness unit')
+sns.barplot(data=cell_2, y='BusinessUnit', x='directEarnedHours', order = ['Production', 'Medical', 'Tooling']);
 
 #this graph shows the average spread of earned hours over a week.
 #The data set for saturday only contains one point and ths does not display a distribution. 
-#plt.title('Earned hours Vs Week day')
-#sns.barplot(data=cell_2, x = 'weekDay', y = 'directEarnedHours');
+plt.title('Earned hours Vs Week day')
+sns.barplot(data=cell_2, x = 'weekDay', y = 'directEarnedHours');
 
 
 
@@ -176,8 +176,7 @@ Means = np.array([mean_Shaun, mean_fernando, mean_leo, mean_murray])
 
 plt.title('Mean time clocked to operation')
 plt.xlabel('Hours')
-#sns.barplot(Means, operators);
-
+sns.barplot(Means, operators);
 
 #cell_2.to_excel("123.xlsx")   
       
